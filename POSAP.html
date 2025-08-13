@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Products POSA PHARMACYy & MY HEALTH AND DRUG CONSULT(MHDC)</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f5f9f9;
+      color: #333;
+    }
+    header {
+      background-color: #2c7a7b;
+      color: white;
+      padding: 20px 40px;
+      text-align: center;
+    }
+    nav {
+      background-color: #319795;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 15px 10px;
+      display: block;
+    }
+    nav a:hover {
+      background-color: #2c7a7b;
+    }
+    nav a.active {
+      background-color: #2c7a7b;
+    }
+    main {
+      padding: 40px;
+      max-width: 900px;
+      margin: auto;
+    }
+    h1 {
+      color: #white;
+      margin-bottom: 20px;
+    }
+    .product-list {
+      list-style-type: none;
+      padding: 0;
+    }
+    .product-list li {
+      background-color: white;
+      margin-bottom: 15px;
+      padding: 15px 20px;
+      border-radius: 6px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .product-list li strong {
+      color: #2c7a7b;
+    }
+footer {
+  background-color: #2c7a7b;
+  color: white;              /* White text for good contrast */
+  padding: 15px 10px;
+  margin-top: 90px;
+  text-align: center;        /* Center the text */
+  font-size: 16px;
+  font-weight: 500;
+}
+    }
+  </style>
+</head>
+<body>
+<script>document.addEventListener('DOMContentLoaded', () => {
+  // Product price data (₦ NGN currency)
+  const productPrices = {
+    'Paracetamol 500mg': 500,
+    'Amoxicillin Capsules': 1200,
+    'Cough Syrup': 800,
+    'Vitamin C Tablets': 600,
+    'Blood Pressure Monitor': 5500,
+    'Diabetes Test Strips': 1500,
+  };
+
+  // Highlight product list interactivity
+  const products = document.querySelectorAll('.product-list li');
+
+  products.forEach((product) => {
+    product.addEventListener('click', () => {
+      // Remove highlight from all products
+      products.forEach(p => p.classList.remove('highlighted'));
+
+      // Highlight the clicked product
+      product.classList.add('highlighted');
+
+      // Show product details in alert
+      alert(`Product Details:\n${product.textContent}`);
+    });
+  });
+
+  // Order form elements
+  const productSelect = document.getElementById('productSelect');
+  const priceInput = document.getElementById('priceInput');
+  const quantityInput = document.getElementById('quantityInput');
+  const totalPriceInput = document.getElementById('totalPriceInput');
+  const orderForm = document.getElementById('orderForm');
+
+  // Populate the product dropdown options dynamically
+  for (const product in productPrices) {
+    const option = document.createElement('option');
+    option.value = product;
+    option.textContent = product;
+    productSelect.appendChild(option);
+  }
+
+  // Update price and total price inputs based on selected product and quantity
+  function updatePrices() {
+    const selectedProduct = productSelect.value;
+    const unitPrice = productPrices[selectedProduct] || 0;
+    const quantity = parseInt(quantityInput.value) || 1;
+
+    priceInput.value = unitPrice.toLocaleString();
+    totalPriceInput.value = (unitPrice * quantity).toLocaleString();
+  }
+
+  // Event listeners for product selection and quantity input
+  productSelect.addEventListener('change', updatePrices);
+  quantityInput.addEventListener('input', updatePrices);
+
+  // Initialize price and total price on page load
+  updatePrices();
+
+  // Handle form submission for placing an order
+  orderForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    alert(`Thank you for your order!\n\nProduct: ${productSelect.value}\nQuantity: ${quantityInput.value}\nTotal Price: ₦${totalPriceInput.value}`);
+
+    // Reset the form and update prices to default
+    orderForm.reset();
+    updatePrices();
+  });
+});
+</script>
+
+<header>
+  <h1>POSA PHARMACY & MY HEALTH AND DRUG CONSULT(MHDC)</h1>
+  <p>Your health, our priority</p>
+</header>
+
+<nav>
+  <a href="Learn.html">Home</a>
+  <a href="POSAAbout.html">About Us</a>
+  <a href="POSAS.html">Services</a>
+  <a href="POSAP.html" class="active">Products</a>
+  <a href="POSAC.html">Contact</a>
+</nav>
+
+<main>
+  <h1>Our Products</h1>
+  <ul class="product-list">
+    <li><strong>Paracetamol 500mg</strong> — Pain relief and fever reducer</li>
+    <li><strong>Amoxicillin Capsules</strong> — Antibiotic for bacterial infections</li>
+    <li><strong>Cough Syrup</strong> — Soothes throat and relieves cough</li>
+    <li><strong>Vitamin C Tablets</strong> — Boosts immunity and antioxidant support</li>
+    <li><strong>Blood Pressure Monitor</strong> — Reliable device for home blood pressure tracking</li>
+    <li><strong>Diabetes Test Strips</strong> — For easy blood glucose monitoring</li>
+  </ul>
+</main>
+
+<footer>
+  <p>© 2025 POSA PHARMACY & MY HEALTH AND DRUG CONSULT(MHDC) | Phone: (234) 7066176003</p>
+</footer>
+
+</body>
+</html>

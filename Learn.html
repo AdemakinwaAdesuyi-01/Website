@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>POSA PHARMACY & MY HEALTH AND DRUG CONSULT(MHDC)</title>
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: #f5f9f9;
+  color: #333;
+}
+header {
+  background-color: #2c7a7b;
+  color: white;
+  padding: 30px 50px;
+  text-align: center;
+}
+nav {
+  background-color: #319795;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 15px 10px;
+  display: block;
+}
+nav a:hover {
+  background-color: #2c7a7b;
+}
+main {
+  padding: 50px;
+  max-width: 900px;
+  margin: auto;
+}
+h1 {
+  color: white;
+}
+h2 {
+  color: #2c7a7b;
+}
+section {
+  margin-bottom: 40px;
+}
+footer {
+  background-color: #2c7a7b;
+  color: white; /* Changed to white for contrast */
+  padding: 15px 10px;
+  margin-top: 90px;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+  <script>
+  window.onload = function() {
+  const name = prompt("Welcome to POSA Pharmacy! What's your name?");
+
+  if (name) {
+    // Create banner element
+    const banner = document.createElement('div');
+    banner.textContent = `Hello, ${name}! We're glad you're here.`;
+    
+    // Style the banner
+    Object.assign(banner.style, {
+      position: 'fixed',
+      top: '0',
+      left: '0',
+      width: '100%',
+      backgroundColor: '#2c7a7b',
+      color: 'white',
+      padding: '15px',
+      textAlign: 'center',
+      fontSize: '18px',
+      fontWeight: 'bold',
+      boxShadow: '0 2px 5px rgba(0,0,0,0.3)',
+      zIndex: '9999',
+      transform: 'translateY(-100%)',
+      transition: 'transform 0.5s ease',
+    });
+    
+    document.body.appendChild(banner);
+    
+    // Slide banner down
+    setTimeout(() => {
+      banner.style.transform = 'translateY(0)';
+    }, 100);
+    
+    // Hide banner after 5 seconds
+    setTimeout(() => {
+      banner.style.transform = 'translateY(-100%)';
+      // Remove banner from DOM after animation
+      setTimeout(() => document.body.removeChild(banner), 500);
+    }, 5000);
+  }
+};
+</script>
+
+<header>
+  <h1>POSA PHARMACY & MY HEALTH AND DRUG CONSULT(MHDC)</h1>
+  <p>Your health, our priority</p>
+</header>
+
+<nav>
+  <a href="Learn.html">Home</a>
+  <a href="POSAAbout.html">About Us</a>
+  <a href="POSAS.html">Services</a>
+  <a href="POSAP.html">Products</a>
+  <a href="POSAC.html">Contact</a>
+</nav>
+
+<main>
+  <section>
+    <h2>Welcome to Posa Pharmacy & Mhdc Pharmaceutical Company</h2>
+    <p>
+      We provide quality pharmaceutical services with care and professionalism.
+      Our team is dedicated to helping you maintain your health with trusted medicines and expert advice.
+    </p>
+  </section>
+
+  <section class="services">
+    <div class="service">
+      <h3>Prescription Services</h3>
+      <p>Fast and accurate prescription filling by licensed pharmacists.</p>
+    </div>
+    <div class="service">
+      <h3>Over-the-Counter</h3>
+      <p>A wide range of health and wellness products available for immediate purchase.</p>
+    </div>
+    <div class="service">
+      <h3>Health Consultations</h3>
+      <p>Professional advice to help you manage your medications and health better.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>©2025  POSA PHARMACY & MY HEALTH AND DRUG CONSULT(MHDC)| Phone: (234)7066176003</p>
+</footer>
+
+</body>
+</html>
